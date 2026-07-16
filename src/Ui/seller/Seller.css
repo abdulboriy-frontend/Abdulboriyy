@@ -1,0 +1,146 @@
+/* Asosiy konteyner */
+.seller-container {
+  padding: 24px;
+  background-color: #f7f7f7;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Sarlavha: "Tasdiqlangan sotuvchilar" */
+.title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1f1f1f;
+  margin-bottom: 24px;
+}
+
+.shield-icon {
+  display: inline-flex;
+  align-items: center;
+  color: #ff6b00; /* Qalqon belgisi rangi */
+}
+
+/* Grid tuzilishi */
+.seller-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+/* Har bir sotuvchi kartochkasi */
+.seller-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px 16px;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 4px 12px rgba(0, 0, 0, 0.03);
+  border: 1px solid #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Logotip atrofidagi to'q sariq aylana */
+.logo-wrapper {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  border: 2px solid #ff6b00;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.seller-logo {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Sotuvchi nomi */
+.seller-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000000;
+  margin: 0 0 6px 0;
+  line-height: 1.2;
+}
+
+/* Tajriba va Joylashuv matni */
+.seller-meta {
+  font-size: 12px;
+  color: #8f8f8f;
+  margin: 0 0 20px 0;
+}
+
+/* Kulrang info-bloklar konteyneri */
+.stats-container {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Ishonchlilik va Javob vaqti bloklari */
+.stat-box {
+  flex: 1;
+  background: #f5f5f5;
+  padding: 10px 6px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 48px;
+}
+
+.stat-value {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1f1f1f;
+  margin-bottom: 2px;
+}
+
+.stat-label {
+  font-size: 10px;
+  color: #7f7f7f;
+  font-weight: 500;
+}
+
+.details-link {
+  display: block;
+  width: 100%;
+  padding: 11px 0;
+  text-align: center;
+  text-decoration: none;
+  background: #ffffff;
+  border: 1px solid #ff6b00;
+  color: #ff6b00;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  box-sizing: border-box;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.details-link:hover {
+  background: #ff6b00;
+  color: #ffffff;
+}
+.details-btn{
+      width: 125px;
+  height: 48px;
+  border: none;
+  border-radius: 10px;
+  background: #fff;
+  color: #ff7a00;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: .2s;
+}

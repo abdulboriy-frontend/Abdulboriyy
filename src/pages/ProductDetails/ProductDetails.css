@@ -1,0 +1,199 @@
+.detail-konteyner {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: #ff7a00;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+
+.detail-tana {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 40px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 16px;
+}
+
+.katta-rasm {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #f0f0f0;
+}
+
+.katta-rasm img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.yangi-tag {
+  background: #fff0e6;
+  color: #ff7a00;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-right: 10px;
+}
+
+.id-tag {
+  color: #98a2b3;
+  font-size: 12px;
+}
+
+.detail-ong h1 {
+  font-size: 28px;
+  color: #101828;
+  margin: 15px 0 10px;
+  font-weight: 700;
+}
+
+.reyting-qism {
+  font-size: 14px;
+  color: #667085;
+  margin-bottom: 30px;
+}
+
+.narx-blok {
+  background: #f9fafb;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.narx-blok h3 {
+  font-size: 16px;
+  margin-bottom: 15px;
+  color: #101828;
+}
+
+.narx-setka {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.narx-karta {
+  background: #fff;
+  border: 1px solid #e4e7ec;
+  border-radius: 8px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.narx-karta.aktiv {
+  border-color: #ff7a00;
+  background: #fff8f4;
+}
+
+.ommabop {
+  position: absolute;
+  top: -10px;
+  background: #ff7a00;
+  color: #fff;
+  font-size: 9px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+.orange-text {
+  color: #ff7a00;
+  font-weight: 700;
+}
+
+.narx-karta span {
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+.moq-text {
+  margin-top: 15px;
+  font-size: 13px;
+  color: #667085;
+}
+
+.sotuvchi-blok {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #e4e7ec;
+  padding: 16px;
+  border-radius: 12px;
+}
+
+.sotuvchi-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sotuvchi-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #f4f4f4;
+}
+
+.sotuvchi-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dokon-btn {
+  background: transparent;
+  border: 1px solid #e4e7ec;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #344054;
+}
+
+@media (max-width: 768px) {
+  .detail-tana {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 450px) {
+  .detail-konteyner {
+    padding: 15px 12px;
+  }
+  .detail-ong h1 {
+    font-size: 20px;
+  }
+  .narx-setka {
+    grid-template-columns: 1fr;
+  }
+  .narx-karta span {
+    font-size: 16px;
+  }
+  .sotuvchi-blok {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+  .dokon-btn {
+    width: 100%;
+  }
+}

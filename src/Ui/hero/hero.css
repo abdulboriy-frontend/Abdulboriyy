@@ -1,0 +1,164 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hero {
+  width: 100%;
+  background: #fff;
+  padding: 20px 0;
+}
+
+.hero-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  gap: 20px;
+}
+
+.sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 20px;
+  color: #ff7a00;
+  font-size: 18px;
+  font-weight: 700;
+  border-bottom: 1px solid #f3f3f3;
+}
+
+.category-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.category-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.category-item:hover {
+  background: #fff6ef;
+}
+
+.category-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.category-icon {
+  width: 18px;
+  height: 18px;
+  color: #666;
+}
+
+.category-arrow {
+  width: 16px;
+  height: 16px;
+  color: #bbb;
+}
+
+.hero-banner {
+  flex: 1;
+  height: 405px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  padding: 60px;
+  background:
+    linear-gradient(rgba(0,0,0,.25), rgba(0,0,0,.25)),
+    url("../../assets/photo_2026-07-03_10-07-25.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-content {
+  color: #fff;
+  max-width: 520px;
+}
+
+.hero-tag {
+  display: inline-block;
+  background: #ff7a00;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.hero-content h1 {
+  font-size: 56px;
+  line-height: 1.05;
+  font-weight: 800;
+  margin: 18px 0;
+}
+
+.hero-content p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 35px;
+}
+
+.hero-btn {
+  width: 125px;
+  height: 48px;
+  border: none;
+  border-radius: 10px;
+  background: #fff;
+  color: #ff7a00;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.hero-btn:hover {
+  background: #ff7a00;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .hero-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+
+  .hero-banner {
+    height: 300px;
+    padding: 30px;
+  }
+
+  .hero-content h1 {
+    font-size: 34px;
+  }
+
+  .hero-content p {
+    font-size: 14px;
+  }
+
+  .hero-btn {
+    width: 110px;
+    height: 42px;
+    font-size: 14px;
+  }
+}
