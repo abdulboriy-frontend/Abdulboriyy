@@ -1,4 +1,4 @@
-import "./Footer.css";
+import "./footer.css";
 
 import { Package, Globe, Mail, Phone, ChevronRight, Apple, Play,} from "lucide-react";
 
