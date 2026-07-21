@@ -1,74 +1,147 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './Seller.css';
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import {
+  MapPin,
+  ShieldCheck,
+  Clock3,
+  ArrowRight,
+} from "lucide-react";
+import "./Seller.css";
 
 const Seller = () => {
+  const navigate = useNavigate();
+
   const [sellers, setSellers] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const navigate = useNavigate("");
 
- 
   useEffect(() => {
-    fetch('https://uzum-api.onrender.com/api/sellers')
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error("Ma'lumotlarni yuklashda xatolik yuz berdi");
-        }
-        return res.json();
-      })
-      .then((resData) => {
-        
-        setSellers(resData.data || []);
+    async function getSellers() {
+      try {
+        const res = await fetch(
+          "https://uzum-api.onrender.com/api/sellers"
+        );
+
+        const data = await res.json();
+
+        setSellers(data.data || []);
+      } catch (err) {
+        console.log(err);
+      } finally {
         setLoading(false);
-      })
-      .catch((err) => {
-        setError(err.message);
-        setLoading(false);
-      });
+      }
+    }
+
+    getSellers();
   }, []);
 
-  if (loading) return <div className="loading">Yuklanmoqda...</div>;
-  if (error) return <div className="error">Xatolik: {error}</div>;
+  if (loading) {
+    return (
+      <div className="loading">
+       
+      </div>
+    );
+  }
 
   return (
     <div className="seller-container">
-      <h2 className="title">
-        <span className="shield-icon"></span> Tasdiqlangan sotuvchilar
-      </h2>
-      
+
+      <h1 className="seller-title">
+        Tasdiqlangan sotuvchilar
+      </h1>
+
       <div className="seller-grid">
+
         {sellers.map((seller) => (
-          <div key={seller.id} className="seller-card">
-            <div className="logo-wrapper">
-              <img src={seller.logoUrl} alt={seller.name} className="seller-logo" />
+
+          <div
+            className="seller-card"
+            key={seller.id}
+          >
+
+            <div className="seller-logo-box">
+
+              <img
+                src={seller.logoUrl}
+                alt={seller.name}
+                className="seller-logo"
+              />
+
             </div>
 
-            <h3 className="seller-name">{seller.name}</h3>
-            <p className="seller-meta">
-              {seller.experienceLabel} • {seller.location}
+            <h2 className="seller-name">
+              {seller.name}
+            </h2>
+
+            <div className="seller-location">
+
+              <MapPin size={15} />
+
+              <span>
+                {seller.location}
+              </span>
+
+            </div>
+
+            <p className="seller-experience">
+              {seller.experienceLabel}
             </p>
 
-            <div className="stats-container">
-              <div className="stat-box">
-                <span className="stat-value">{seller.reliabilityScore}%</span>
-                <span className="stat-label">Ishonchlilik</span>
+            <div className="seller-stats">
+
+              <div className="stat-item">
+
+                <ShieldCheck
+                  size={16}
+                  color="#ff6600"
+                />
+
+                <strong>
+                  {seller.reliabilityScore}%
+                </strong>
+
+                <small>
+                  Ishonchlilik
+                </small>
+
               </div>
-              <div className="stat-box">
-                <span className="stat-value">{seller.responseTimeLabel.split(' ')[0]}</span>
-                <span className="stat-label">Javob vaqti</span>
+
+              <div className="stat-item">
+
+                <Clock3
+                  size={16}
+                  color="#ff6600"
+                />
+
+                <strong>
+                  {seller.responseTimeLabel}
+                </strong>
+
+                <small>
+                  Javob vaqti
+                </small>
+
               </div>
+
             </div>
 
-            <button 
-            onClick={(e)=>(e.preventDefault(),navigate(`/seller/${seller.slug}`))}
-              className="details-btn" 
+            <button
+              className="seller-btn"
+              onClick={() =>
+                navigate(`/seller/${seller.slug}`)
+              }
             >
               Sotuvchi sahifasi
+
+              <ArrowRight size={18} />
+
             </button>
+
           </div>
+
         ))}
+
       </div>
+
     </div>
   );
 };

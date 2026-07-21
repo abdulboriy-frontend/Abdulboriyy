@@ -1,5 +1,10 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .detail-konteyner {
-  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 30px 20px;
@@ -9,10 +14,10 @@
   background: none;
   border: none;
   color: #ff7a00;
+  font-size: 15px;
   font-weight: 600;
   cursor: pointer;
   margin-bottom: 20px;
-  font-size: 15px;
 }
 
 .detail-tana {
@@ -20,22 +25,21 @@
   grid-template-columns: 1fr 1.2fr;
   gap: 40px;
   background: #fff;
-  padding: 20px;
   border-radius: 16px;
+  padding: 20px;
 }
 
 .katta-rasm {
   width: 100%;
-  aspect-ratio: 1;
   border-radius: 12px;
   overflow: hidden;
-  border: 1px solid #f0f0f0;
 }
 
 .katta-rasm img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .yangi-tag {
@@ -45,38 +49,35 @@
   border-radius: 4px;
   font-size: 12px;
   font-weight: 600;
-  margin-right: 10px;
 }
 
 .id-tag {
+  margin-left: 10px;
   color: #98a2b3;
   font-size: 12px;
 }
 
 .detail-ong h1 {
   font-size: 28px;
+  margin: 15px 0;
   color: #101828;
-  margin: 15px 0 10px;
-  font-weight: 700;
 }
 
 .reyting-qism {
-  font-size: 14px;
   color: #667085;
-  margin-bottom: 30px;
+  font-size: 14px;
+  margin-bottom: 25px;
 }
 
 .narx-blok {
   background: #f9fafb;
   border-radius: 12px;
   padding: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 
 .narx-blok h3 {
-  font-size: 16px;
   margin-bottom: 15px;
-  color: #101828;
 }
 
 .narx-setka {
@@ -87,12 +88,10 @@
 
 .narx-karta {
   background: #fff;
-  border: 1px solid #e4e7ec;
-  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
   padding: 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  text-align: center;
   position: relative;
 }
 
@@ -104,12 +103,13 @@
 .ommabop {
   position: absolute;
   top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
   background: #ff7a00;
   color: #fff;
-  font-size: 9px;
-  padding: 2px 6px;
+  font-size: 10px;
+  padding: 3px 8px;
   border-radius: 4px;
-  font-weight: 700;
 }
 
 .orange-text {
@@ -118,9 +118,10 @@
 }
 
 .narx-karta span {
+  display: block;
+  margin-top: 8px;
   font-size: 18px;
-  font-weight: 600;
-  margin-top: 5px;
+  font-weight: 700;
 }
 
 .moq-text {
@@ -133,9 +134,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid #e4e7ec;
-  padding: 16px;
+  border: 1px solid #e5e7eb;
   border-radius: 12px;
+  padding: 16px;
 }
 
 .sotuvchi-info {
@@ -149,7 +150,6 @@
   height: 48px;
   border-radius: 50%;
   overflow: hidden;
-  background: #f4f4f4;
 }
 
 .sotuvchi-logo img {
@@ -159,40 +159,101 @@
 }
 
 .dokon-btn {
-  background: transparent;
-  border: 1px solid #e4e7ec;
-  padding: 10px 20px;
+  padding: 10px 22px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
   border-radius: 8px;
-  font-weight: 600;
   cursor: pointer;
-  color: #344054;
+  font-weight: 600;
 }
 
-@media (max-width: 768px) {
+
+@media (max-width: 992px) {
   .detail-tana {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 25px;
+  }
+
+  .narx-setka {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .detail-ong h1 {
+    font-size: 24px;
   }
 }
+
+
+@media (max-width: 768px) {
+  .detail-konteyner {
+    padding: 20px 15px;
+  }
+
+  .detail-tana {
+    padding: 15px;
+    gap: 20px;
+  }
+
+  .katta-rasm img {
+    height: 320px;
+  }
+
+  .detail-ong h1 {
+    font-size: 22px;
+  }
+
+  .narx-setka {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
 
 @media (max-width: 450px) {
   .detail-konteyner {
-    padding: 15px 12px;
+    padding: 12px;
   }
+
+  .detail-tana {
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  .katta-rasm img {
+    height: 220px;
+  }
+
   .detail-ong h1 {
-    font-size: 20px;
+    font-size: 18px;
   }
+
+  .reyting-qism {
+    font-size: 12px;
+  }
+
   .narx-setka {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
   }
+
+  .narx-karta {
+    padding: 10px;
+  }
+
   .narx-karta span {
-    font-size: 16px;
+    font-size: 15px;
   }
+
+  .moq-text {
+    font-size: 11px;
+  }
+
   .sotuvchi-blok {
     flex-direction: column;
-    gap: 15px;
     align-items: flex-start;
+    gap: 15px;
   }
+
   .dokon-btn {
     width: 100%;
   }

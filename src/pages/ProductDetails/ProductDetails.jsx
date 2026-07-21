@@ -25,7 +25,7 @@ function ProductDetail() {
           setMahsulot(topilgan);
         }
       } catch (xatolik) {
-        console.error("Xatolik:", xatolik);
+        console.error(xatolik);
       } finally {
         setLoading(false);
       }
@@ -34,16 +34,13 @@ function ProductDetail() {
     bittaMahsulotYuklash();
   }, [slug]);
 
-  if (loading) return <div className="loading">Yuklanmoqda...</div>;
-  if (!mahsulot) return <div className="loading">Mahsulot topilmadi!</div>;
+  if (loading) return <div className="loading"></div>;
+  if (!mahsulot) return <div className="loading"></div>;
 
   return (
     <div className="detail-konteyner">
-      <button
-        className="back-btn"
-        onClick={() => navigate(-1)}
-      >
-        ← Orqaga qaytish
+      <button className="back-btn" onClick={() => navigate(-1)} >
+
       </button>
 
       <div className="detail-tana">
@@ -64,21 +61,21 @@ function ProductDetail() {
           <h1>{mahsulot.name}</h1>
 
           <div className="reyting-qism">
-            <span>⭐ 4.8</span>
+            <span> 4.8</span>
             <span>• 124 ta sharh</span>
             <span>• 500+ sotilgan</span>
           </div>
 
           <div className="narx-blok">
             <h3>
-              Ulgurji narxlar (MOQ: {mahsulot.minOrderQuantity} dona)
+              Ulgurji narxlar ( {mahsulot.minOrderQuantity} )
             </h3>
 
             <div className="narx-setka">
               <div className="narx-karta">
                 <small>1 - 10 dona</small>
                 <span>
-                  {mahsulot.price?.toLocaleString()} UZS
+                  {mahsulot.price?.toLocaleString()}
                 </span>
               </div>
 
@@ -86,14 +83,14 @@ function ProductDetail() {
                 <small className="ommabop">OMMABOP</small>
                 <small>11 - 50 dona</small>
                 <span className="orange-text">
-                  {mahsulot.discountedPrice?.toLocaleString()} UZS
+                  {mahsulot.discountedPrice}
                 </span>
               </div>
 
               <div className="narx-karta">
                 <small>50+ dona</small>
                 <span>
-                  {(mahsulot.discountedPrice * 0.95)?.toLocaleString()} UZS
+                  {(mahsulot.discountedPrice)}
                 </span>
               </div>
             </div>
@@ -101,21 +98,16 @@ function ProductDetail() {
 
           <div className="sotuvchi-blok">
             <div className="sotuvchi-info">
-              <img
-                src={
-                  mahsulot.seller?.logoUrl ||
-                  "https://via.placeholder.com/50"
-                }
-                alt="logo"
+              <img src={mahsulot.seller?.logoUrl || "https://via.placeholder.com/50"} alt="logo"
               />
 
               <div>
-                <h4>{mahsulot.seller?.name || "Premium Store"}</h4>
+                <h4>{mahsulot.seller?.name}</h4>
 
                 <p>
                   {mahsulot.isVerifiedSeller
                     ? "Tasdiqlangan sotuvchi"
-                    : "Oddiy sotuvchi"}
+                    : ""}
                 </p>
               </div>
             </div>

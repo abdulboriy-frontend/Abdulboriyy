@@ -2,24 +2,23 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 .footer {
   width: 100%;
   background: #ffffff;
-  border-top: 1px solid #ededed;
+  border-top: 1px solid #f3f4f6;
   margin-top: 60px;
 }
 
 .footer_top {
-  width: 90%;
+  width: 100%;
   max-width: 1200px;
   margin: auto;
-  padding: 60px 0;
+  padding: 60px 24px;
   display: grid;
-  grid-template-columns: 1.3fr 0.9fr 0.9fr 1.1fr;
-  gap: 40px;
+  grid-template-columns: 1.2fr 1fr 1fr 1.1fr;
+  gap: 48px;
 }
 
 .logo {
@@ -30,15 +29,15 @@
 }
 
 .logo svg {
-  color: #ff7a00;
+  color: #ff6a00;
   width: 32px;
   height: 32px;
 }
 
 .logo h2 {
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 700;
-  color: #1f1f1f;
+  color: #000000;
   letter-spacing: -0.5px;
 }
 
@@ -46,7 +45,7 @@
   color: #667085;
   font-size: 14px;
   line-height: 22px;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .social {
@@ -55,84 +54,77 @@
 }
 
 .icon {
-  width: 40px;
-  height: 40px;
-  background: #f2f4f7;
+  width: 42px;
+  height: 42px;
+  background: #f4f4f5;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #344054;
+  color: #18181b;
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: background 0.2s ease;
 }
 
 .icon:hover {
-  background: #ff7a00;
-  color: white;
-  transform: translateY(-2px);
+  background: #e4e4e7;
+}
+
+.icon svg {
+  display: block !important;
 }
 
 .footer_box h3 {
   font-size: 16px;
   font-weight: 700;
-  color: #1f1f1f;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  color: #000000;
+  margin-bottom: 24px;
+  text-transform: none;
 }
 
 .footer_box a {
   display: flex;
   align-items: center;
-  gap: 8px;
   text-decoration: none;
-  color: #475467;
+  color: #667085;
   font-size: 14px;
-  margin-bottom: 14px;
-  transition: all 0.2s ease;
-}
-
-.footer_box a svg {
-  width: 16px;
-  height: 16px;
-  color: #98a2b3;
+  margin-bottom: 16px;
   transition: color 0.2s ease;
 }
 
-.footer_box a:hover {
-  color: #ff7a00;
-  padding-left: 4px;
+
+.footer_box > a svg {
+  display: none; 
 }
 
-.footer_box a:hover svg {
-  color: #ff7a00;
+.footer_box a:hover {
+  color: #111827;
 }
 
 .store {
   width: 100%;
   max-width: 200px;
-  height: 52px;
-  background: #101828;
+  height: 46px;
+  background: #000000;
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   margin-top: 10px;
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 0 14px;
+  padding: 0 16px;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: opacity 0.2s ease;
 }
 
 .store:hover {
-  background: #1d2939;
+  opacity: 0.9;
 }
 
 .store svg {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   flex-shrink: 0;
 }
 
@@ -140,63 +132,57 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  line-height: 1.2;
 }
 
 .store small {
-  font-size: 9px;
+  font-size: 8px;
   color: #98a2b3;
   text-transform: uppercase;
 }
 
 .store span {
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 13px;
+  font-weight: 500;
 }
 
 .footer_bottom {
-  border-top: 1px solid #ededed;
+  border-top: 1px solid #f3f4f6;
   text-align: center;
-  padding: 24px 0;
-  color: #667085;
-  font-size: 14px;
+  padding: 30px 0;
+  color: #98a2b3;
+  font-size: 13px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .footer_top {
     grid-template-columns: 1fr 1fr;
-    gap: 30px;
+    gap: 40px;
+    padding: 50px 24px;
   }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 500px) {
   .footer_top {
     grid-template-columns: 1fr;
     gap: 32px;
-    padding: 40px 0;
-    width: 88%;
+    padding: 40px 16px;
   }
 
   .logo h2 {
-    font-size: 24px;
+    font-size: 22px;
   }
 
   .footer_box h3 {
-    margin-bottom: 14px;
+    margin-bottom: 16px;
   }
 
   .footer_box a {
     margin-bottom: 12px;
-    font-size: 15px; 
+    font-size: 14px;
   }
 
   .store {
-    max-width: 100%; 
-    height: 56px;
-  }
-
-  .footer_bottom {
-    padding: 20px 16px;
-    font-size: 13px;
-    line-height: 20px;
+    max-width: 100%;
   }
 }

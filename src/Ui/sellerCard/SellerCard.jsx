@@ -1,107 +1,156 @@
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import './SellerCard.css'   
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import {
+  Home,
+  ChevronRight,
+  MapPin,
+  ShieldCheck,
+  Clock3,
+  Award,
+  Package,
+  UserPlus,
+  MessageCircle,
+  ShoppingCart,
+} from "lucide-react";
+
+import "./SellerCard.css";
 
 const SellerCard = () => {
-  const params = useParams()
-  const [seller, setSeller] = useState(null)
-  const slug = params.slug
-
-  async function Get() {
-    try {
-      const res = await fetch(`https://uzum-api.onrender.com/api/sellers/${slug}`)
-      const data = await res.json()
-      setSeller(data.data)
-      console.log(data.data)
-    } catch (error) {
-      console.error("Ma'lumot olishda xatolik yuz berdi:", error)
-    }
-  }
+  const { slug } = useParams();
+  const [seller, setSeller] = useState(null);
 
   useEffect(() => {
-    if (slug) {
-      Get()
+    async function getSeller() {
+      try {
+        const res = await fetch(
+          `https://uzum-api.onrender.com/api/sellers/${slug}`
+        );
+        const data = await res.json();
+        setSeller(data.data);
+      } catch (error) {
+        console.log(error);
+      }
     }
-  }, [slug])
+
+    getSeller();
+  }, [slug]);
 
   if (!seller) {
-    return <div style={{ textAlign: 'center', padding: '50px', color: '#6b7280' }}>Yuklanmoqda...</div>
+    return <h2 className="loading">Yuklanmoqda...</h2>;
   }
 
   return (
     <div className="seller-container">
-      
+      <div className="breadcrumb">
+        <Home size={16} />
+        <ChevronRight size={15} />
+        <span>Yetkazib beruvchilar</span>
+        <ChevronRight size={15} />
+        <span>{seller.name}</span>
+      </div>
+
       <div className="seller-header">
-        <div className="seller-profile-info">
-          <img 
-            src={seller.logoUrl || "https://via.placeholder.com/80"} 
-            alt={seller.name} 
+        <div className="seller-left">
+          <img
+            src={seller.logoUrl}
+            alt={seller.name}
             className="seller-logo"
           />
-          <div>
-            <div className="seller-title-row">
-              <h1 className="seller-name">{seller.name}</h1>
+
+          <div className="seller-info">
+            <div className="seller-title">
+              <h1>{seller.name}</h1>
+
               {seller.isVerified && (
-                <span className="verified-badge">Ishonchli sotuvchi</span>
+                <span className="verified-badge">
+                  <ShieldCheck size={16} />
+                  Tasdiqlangan
+                </span>
               )}
             </div>
-            <p className="seller-desc">📍 {seller.location} • {seller.description}</p>
-            
-            {/* Tegglar / Statuslar */}
+
+            <p className="seller-location">
+              <MapPin size={16} />
+              {seller.location}
+            </p>
+
             <div className="seller-badges">
-              <span className="badge badge-reliability">⭐ {seller.reliabilityLabel}</span>
-              <span className="badge badge-time">⏱️ {seller.responseTimeLabel}</span>
-              <span className="badge badge-experience">💼 {seller.experienceLabel}</span>
+              <span>
+                <ShieldCheck size={15} />
+                {seller.reliabilityLabel}
+              </span>
+
+              <span>
+                <Clock3 size={15} />
+                {seller.responseTimeLabel}
+              </span>
+
+              <span>
+                <Award size={15} />
+                {seller.experienceLabel}
+              </span>
+
+              <span>
+                <Package size={15} />
+                {seller.products?.length} ta mahsulot
+              </span>
             </div>
           </div>
         </div>
 
         <div className="seller-actions">
-          <button className="btn-follow">+ Kuzatish</button>
-          <button className="btn-message">Xabar yuborish</button>
+          <button className="follow-btn">
+            <UserPlus size={18} />
+            Kuzatish
+          </button>
+
+          <button className="message-btn">
+            <MessageCircle size={18} />
+            Xabar yuborish
+          </button>
         </div>
       </div>
 
+      {/* Tabs */}
       <div className="seller-tabs">
-        <button className="tab-btn active">Mahsulotlar</button>
-        <button className="tab-btn">Kompaniya haqida</button>
+        <button className="active">Mahsulotlar</button>
+        <button>Kompaniya haqida</button>
       </div>
 
+      {/* Products */}
       <div className="products-grid">
         {seller.products && seller.products.length > 0 ? (
-          seller.products.map((prod) => (
-            <div key={prod.id} className="product-card">
-              <div>
-                <div className="product-img-wrapper">
-                  <img 
-                    src={prod.imageUrl} 
-                    alt={prod.name} 
-                    className="product-img"
-                  />
-                </div>
-                <h3 className="product-name" title={prod.name}>
-                  {prod.name}
-                </h3>
+          seller.products.map((product) => (
+            <div className="product-card" key={product.id}>
+              <div className="product-image">
+                <img src={product.imageUrl} alt={product.name} />
               </div>
 
-              <div className="product-footer">
-                <div className="product-price">
-                  {prod.price?.toLocaleString()} so'm
-                </div>
-                <div className="product-meta">
-                  <span>Omborda bor</span>
-                  <button className="btn-cart" title="Savatga qo'shish">🛒</button>
-                </div>
+              <div className="product-body">
+                <h3>{product.name}</h3>
+
+                <p className="product-price">
+                  {product.price?.toLocaleString()} so'm
+                </p>
+
+                <span className="stock">
+                  Omborda mavjud
+                </span>
               </div>
+
+              <button className="cart-btn">
+                <ShoppingCart size={18} />
+              </button>
             </div>
           ))
         ) : (
-          <div className="no-products">Hozircha mahsulotlar topilmadi.</div>
+          <div className="no-products">
+            Mahsulotlar topilmadi.
+          </div>
         )}
       </div>
-
     </div>
-  )
-}
+  );
+};
 
-export default SellerCard
+export default SellerCard;

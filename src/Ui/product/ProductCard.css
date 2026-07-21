@@ -1,80 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .konteyner {
-    width: 100%;
-    padding: 30px;
-    background: #f8fafc;
-     padding: 15px 140px;
+max-width: 1300px;
+  margin: 0 auto;
+  padding: 40px 30px;
+  background: #f8fafc;
 }
 
 .tepa-qism {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 25px;
-   
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
 }
 
 .tepa-qism h1 {
-    font-size: 26px;
-    font-weight: 700;
+  font-size: 28px;
+  font-weight: 700;
+  color: #111827;
 }
 
 .tepa-qism a {
-    color: #ff6a00;
-    text-decoration: none;
-    font-weight: 600;
+  text-decoration: none;
+  color: #ff6a00;
+  font-weight: 600;
+}
+
+.tepa-qism a:hover {
+  color: #e65c00;
 }
 
 .panjara {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 18px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
 }
 
-.panjara a{
-    text-decoration: none;
-    color: inherit;
-    display: block;
+.panjara a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }
 
-/* Responsive */
 
-@media (max-width:1200px){
-    .panjara{
-        grid-template-columns: repeat(4,1fr);
-    }
-}
 
-@media (max-width:992px){
-    .panjara{
-        grid-template-columns: repeat(3,1fr);
-    }
-}
 
-@media (max-width:768px){
-    .panjara{
-        grid-template-columns: repeat(2,1fr);
-    }
 
-    .konteyner{
-        padding:20px;
-    }
-}
 
-@media (max-width:450px){
-    .konteyner{
-        padding:12px;
-    }
+  .konteyner {
+    padding: 20px 15px;
+  }
 
-    .tepa-qism h1{
-        font-size:20px;
-    }
+  .tepa-qism h1 {
+    font-size: 24px;
+  }
 
-    .tepa-qism a{
-        font-size:13px;
-    }
 
-    .panjara{
-        grid-template-columns: repeat(2,1fr);
-        gap:10px;
-    }
+
+@media (max-width: 480px) {
+  .panjara {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .konteyner {
+    padding: 12px;
+  }
+
+  .tepa-qism {
+    margin-bottom: 20px;
+  }
+
+  .tepa-qism h1 {
+    font-size: 20px;
+  }
+
+  .tepa-qism a {
+    font-size: 13px;
+  }
 }

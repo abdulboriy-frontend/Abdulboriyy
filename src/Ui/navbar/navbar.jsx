@@ -1,6 +1,6 @@
 import "./navbar.css";
 import { Link } from "react-router-dom";
-import { User, ShoppingCart, Search } from "lucide-react";
+import { User, ShoppingCart, Search, Camera } from "lucide-react";
 import Background from "../../assets/Background.png";
 
 function Navbar() {
@@ -11,35 +11,32 @@ function Navbar() {
         <h2>Minibaba</h2>
       </div>
 
-      <div className="search">
-        <Search className="dd" />
-        <input
-          type="text"
-          placeholder="Mahsulot yoki sotuvchini qidiring..."
-        />
-        <button>Qidirish</button>
+      <div className="search-wrapper">
+        <div className="search-container">
+          <Search className="search-icon" />
+          <input
+            type="text"
+            placeholder="Mahsulot yoki sotuvchini qidiring..."
+          />
+          <Camera className="camera-icon" />
+        </div>
+        <button className="search-btn">Qidirish</button>
       </div>
 
       <div className="menu">
-        <a href="#">Kategoriyalar</a>
-        <a href="#">Yordam</a>
+        <a href="#" className="menu-link">Kategoriyalar</a>
+        <a href="#" className="menu-link">Yordam</a>
 
-        <div className="icon">
-          <p></p>
+        <Link to="/login" className="icon-btn">
+          <User className="nav-icon" />
+          <span>Kirish</span>
+        </Link>
 
-          <Link to="/login" className="login-link">
-            Kirish
-            <User className="i" />
-          </Link>
-        </div>
-
-        <div className="icon">
-          <p></p>
-
-          <div className="r">
-            <ShoppingCart className="d" />
-            Savat
+        <div className="icon-btn">
+          <div className="cart-icon-wrapper">
+            <ShoppingCart className="nav-icon" />
           </div>
+          <span>Savat</span>
         </div>
       </div>
     </nav>

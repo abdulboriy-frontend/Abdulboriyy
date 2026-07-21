@@ -29,7 +29,7 @@ function ProductCard() {
   }, []);
 
   if (loading) {
-    return <div className="loading">Yuklanmoqda...</div>;
+    return <div className="loading"></div>;
   }
 
   return (
