@@ -1,9 +1,10 @@
+import React from "react";
 import "./navbar.css";
 import { Link } from "react-router-dom";
 import { User, ShoppingCart, Search, Camera } from "lucide-react";
 import Background from "../../assets/Background.png";
 
-function Navbar() {
+function Navbar({ cartCount }) {
   return (
     <nav className="navbar">
       <div className="logo">
@@ -35,6 +36,7 @@ function Navbar() {
         <div className="icon-btn">
           <div className="cart-icon-wrapper">
             <ShoppingCart className="nav-icon" />
+            {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
           </div>
           <span>Savat</span>
         </div>

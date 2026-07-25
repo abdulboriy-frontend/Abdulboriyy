@@ -1,4 +1,5 @@
 import "./App.css";
+import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import Navbar from "./Ui/navbar/navbar";
@@ -21,19 +22,27 @@ function Home() {
 }
 
 function App() {
+  const [cartCount, setCartCount] = useState(0);
+
+
+  const handleAddToCart = (sanoq) => {
+    setCartCount((prev) => prev + sanoq);
+  };
+
   return (
     <>
-      <Navbar />
+      <Navbar cartCount={cartCount} />
 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
 
-       
-        <Route path="/product/:slug" element={<ProductDetail />} />
+        <Route
+          path="/product/:slug"
+          element={<ProductDetail onAddToCart={handleAddToCart} />}
+        />
 
         <Route path="/seller/:slug" element={<SellerCard />} />
-
       </Routes>
 
       <Footer />
